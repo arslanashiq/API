@@ -25,7 +25,7 @@ const recentRoutes =require('./routes/recents');
 const AllCount =require('./routes/all_count');
 
 const api = process.env.API_URL;
-const PORT = process.env.PORT;
+const PORT = process.env.PORT||5000;
 
 app.use(`${api}/products`, productsRoutes);
 app.use(`${api}/orders`, ordersRoutes);
