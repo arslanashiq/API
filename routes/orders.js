@@ -55,7 +55,7 @@ router.put(`/:id`, async (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const order = Order.findByIdAndRemove(req.params.id);
+  const order = Order.findByIdAndRemove({_id:req.params.id);
   console.log(order)
   if (!order) {
     return res.send({ order, status: 100 });
