@@ -59,8 +59,11 @@ router.delete("/:id", (req, res) => {
     .then((order) => {
       if (order) {
         res.send({ order, status: 200 });
+        return
       } else {
         res.send({ order, status: 100 });
+        return
+
       }
     })
     .catch((err) => {
