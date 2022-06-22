@@ -39,7 +39,7 @@ router.post(`/`, async (req, res) => {
   res.send({ order, status: 200 });
 });
 
-router.put(`delorder/:id`, async (req, res) => {
+router.put(`/:id`, async (req, res) => {
   const order = await Order.findOneAndUpdate(
     { _id: req.params.id },
     {
