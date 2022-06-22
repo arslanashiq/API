@@ -55,12 +55,17 @@ router.put(`delorder/:id`, async (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  const order = Order.findByIdAndRemove({_id:req.params.id);
-  console.log(order)
-  if (!order) {
-    return res.send({ order, status: 100 });
-  }
-  return res.send({ order, status: 200 });
+  Order.findByIdAndRemove(req.params.id)
+    .then((order) => {
+      if (order) {
+        res.send({ order, status: 200 });
+      } else {
+        res.send({ order, status: 100 });
+      }
+    })
+    .catch((err) => {
+      return res.status(500).json({ success: false, error: err });
+    });
 });
 
 module.exports = router;
