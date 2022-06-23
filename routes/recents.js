@@ -20,6 +20,7 @@ router.post(`/`, async (req, res) => {
     image: req.body.image,
     info: req.body.info,
     list: req.body.list,
+    category: req.body.category,
   });
   recent = await recent.save();
 
